@@ -1,9 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-module.exports = {
-  entry: './src/index.js',
+
+let config = {
+  entry: [
+    './src/index.js'
+  ],
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
@@ -30,27 +34,29 @@ module.exports = {
         ]
       },
       {
-        test: /\.hbs$/,
-        loader: 'handlebars-loader'
-      },
-      {
-        test: /\.ejs$/,
-        loader: 'ejs-loader'
+        test: /\.html$/,
+        loader: 'html-loader',
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': 'development'
+      'process.env': process.env.NODE_ENV
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/index.ejs'),
-      inject: true
+      template: '!!html-loader?interpolate!' + path.resolve(__dirname, '../src/html/index.html')
     }),
-    new FriendlyErrorsPlugin()
   ]
 }
+if (process.env.NODE_ENV === 'development') {
+  config.entry = ['./build/dev-client'].concat(config.entry)
+  config = webpackMerge(config, {
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
+      new FriendlyErrorsPlugin()
+    ]
+  })
+}
+module.exports = config

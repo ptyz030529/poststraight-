@@ -1,11 +1,12 @@
 const express = require('express')
 const webpack = require('webpack')
 
+process.env.NODE_ENV = 'development'
 const webpackConfig = require('./webpack.config')
 const app = express()
 const compiler = webpack(webpackConfig)
 
-const port = 8080
+const port = 6060
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,

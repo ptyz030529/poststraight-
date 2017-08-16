@@ -1,0 +1,10 @@
+:root{
+  --button-padding: 10px;
+}
+
+button{
+  border:none;
+  padding: var(--button-padding);
+  background: var(--color-primary);
+  color: var(--color-light);
+}
