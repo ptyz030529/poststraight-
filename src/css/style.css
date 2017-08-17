@@ -2,4 +2,8 @@
 
 @import './vars/colors.css';
 
+@import './layouts/container.css';
+@import './layouts/grids.css';
+
 @import './components/button.css';
+
