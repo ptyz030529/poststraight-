@@ -1,0 +1,25 @@
+.form-group {
+  margin-bottom: var(--form-group-margin-bottom);
+  & small{
+    display: block;
+    margin-top: var(--form-text-margin-top);
+  }
+  & label{
+    display: inline-block;
+    margin-bottom: var(--label-margin-bottom);
+  }
+  & input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--input-padding);
+    font-size: var(--input-font-size);
+    line-height: var(--input-line-height);
+    color: var(--input-text-color);
+    background-color: var(--input-background-color);
+    background-image: none;
+    background-clip: padding-box;
+    border: var(--input-border);
+    transition: border-color ease-in-out .15s;
+  }
+}

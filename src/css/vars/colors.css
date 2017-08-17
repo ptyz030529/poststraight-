@@ -133,4 +133,6 @@
   --color-info: var(--color-teal-600);
   --color-light: #f8f9fa;
   --color-dark: #343a40;
+
+  --border-color: var(--color-grey-300);
 }

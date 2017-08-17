@@ -1,0 +1,16 @@
+:root{
+    /*Button*/
+    --button-padding: 10px 14px;
+    --button-background-color: var(--color-primary);
+    --button-text-color: var(--color-light);
+    /*Form*/
+    --form-group-margin-bottom: 16px;
+    --form-text-margin-top: 4px;
+    --label-margin-bottom: 10px;
+    --input-padding: 8px 10px;
+    --input-font-size: var(--font-size-md);
+    --input-line-height: 1.5;
+    --input-text-color: var(--font-color);
+    --input-background-color: var(--color-light);
+    --input-border: 1px solid var(--border-color);
+}
