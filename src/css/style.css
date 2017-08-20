@@ -1,15 +1,13 @@
 @import 'normalize.css';
-
-@import './config.css';
-
 @import './vars/colors.css';
 @import './vars/components.css';
 @import './vars/fonts.css';
 @import './vars/layouts.css';
 
-@import './base.css';
-@import './layouts/container.css';
-@import './layouts/grids.css';
+@import '../scss/index.scss';
+
+/*@import './layouts/container.css';
+@import './layouts/grids.css';*/
 
 @import './components/button.css';
 @import './components/form.css';
