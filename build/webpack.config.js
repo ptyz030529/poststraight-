@@ -13,6 +13,9 @@ let config = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
+  resolve: {
+    extensions: ['.js', '.json', 'scss']
+  },
   module: {
     rules: [
       {
@@ -37,18 +40,15 @@ let config = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: path.resolve(__dirname, './postcss.config.js'),
-              }
-            }
-          },
+          'css-loader',
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     config: {
+          //       path: path.resolve(__dirname, './postcss.config.js'),
+          //     }
+          //   }
+          // },
           'sass-loader'
         ]
       },
