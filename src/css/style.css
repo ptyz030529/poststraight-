@@ -1,8 +1,4 @@
 @import 'normalize.css';
-@import './vars/colors.css';
-@import './vars/components.css';
-@import './vars/fonts.css';
-@import './vars/layouts.css';
 
 @import '../scss/index.scss';
 
@@ -10,5 +6,5 @@
 @import './layouts/grids.css';*/
 
 @import './components/button.css';
-@import './components/form.css';
+/* @import './components/form.css'; */
 

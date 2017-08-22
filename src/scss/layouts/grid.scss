@@ -1,0 +1,32 @@
+@mixin make-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin make-col ($size, $col) {
+    flex: 0 0 percentage($size / $col);
+    max-width: calc($size / $col);
+}
+
+.row{
+    @include  make-row;
+}
+.col{
+    flex: 0 1 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+@for $i from 1 through $girdColumns {
+    .col-#{$i}{
+        @include  make-col (100%, $i);
+        box-sizing: border-box;
+    }   
+}
+  
